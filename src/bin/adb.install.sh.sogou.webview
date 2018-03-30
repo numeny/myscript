@@ -1,0 +1,3 @@
+#!/bin/bash
+#adb.uninstall.sh.sogou.webview
+adb install -r -d out/Release/apks/SogouWebView.apk

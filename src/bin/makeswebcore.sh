@@ -1,0 +1,8 @@
+#/bin/bash
+. build/envsetup.sh
+lunch full-eng
+make libsogouwebcore -j6
+if [[ $? -eq 0 ]];then
+    cplib.sh
+    cplib_www.sh
+fi

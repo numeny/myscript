@@ -1,0 +1,3 @@
+#/bin/bash
+touch sogou_webkit/sogouwebview_delegate/res/raw/libosmesa.solz
+touch sogou_webkit/sogouwebview_delegate/res/raw/libsogou_content_shell_content_view.solz

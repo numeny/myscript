@@ -1,0 +1,13 @@
+#!/bin/sh
+
+#$1: the path of dump_syms
+#$2: the full path of .so include file name
+#$3: the path .so.sym
+#author: wzhang
+
+$1/dump_syms $2 > $2.sym
+head -n1 $2.sym > $1/tmp
+name=`awk '{print $( NF - 1 ) }' $1/tmp`
+rm $1/tmp
+mkdir -p $3/symbols/libsogouwebcore.so/$name
+mv $2.sym $3/symbols/libsogouwebcore.so/$name

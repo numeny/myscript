@@ -1,0 +1,2 @@
+#!/bin/bash
+adb install -r ~/ssd/chromium.android_webview/src/out/Release/apks/SogouWebViewTest.apk

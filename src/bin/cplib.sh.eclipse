@@ -1,0 +1,11 @@
+#/bin/bash
+SOGOULIB_PATH=out/target/product/generic/system/lib/
+PROJECT_PATH=~/sogouwebview/sogouwebview
+ANDROID_PATH=`pwd`
+ls -l ${ANDROID_PATH}/${SOGOULIB_PATH}/libsogousupport.so
+ls -l ${ANDROID_PATH}/${SOGOULIB_PATH}/libsogouwebcore.so
+echo "${ANDROID_PATH}"
+cp ${ANDROID_PATH}/${SOGOULIB_PATH}/libsogousupport.so ${PROJECT_PATH}/libs/armeabi//
+cp ${ANDROID_PATH}/${SOGOULIB_PATH}/libsogouwebcore.so ${PROJECT_PATH}/libs/armeabi/
+ls -l ${PROJECT_PATH}/libs/armeabi/libsogousupport.so
+ls -l ${PROJECT_PATH}/libs/armeabi/libsogouwebcore.so

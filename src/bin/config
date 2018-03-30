@@ -1,0 +1,4 @@
+file /home/niefangxing/debug/debugConfig/422/maguro/app_process
+set solib-absolute-prefix /home/niefangxing/android/AndroidSource/AndroidSource/out/target/product/generic/symbols/system/lib/
+set solib-search-path /home/niefangxing/android/AndroidSource/AndroidSource/out/target/product/generic/symbols/system/lib/
+target remote :5039

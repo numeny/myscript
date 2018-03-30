@@ -1,0 +1,8 @@
+#/bin/bash
+SHELL_PROJECT_PATH=/home/bdg/ssd/shell/translation_sreader_sdk_newcore
+APK_PATH=BrowserActivity/build/outputs/apk/BrowserActivity-debug.apk
+DEST_APK_PATH=/var/www/
+ls -l $SHELL_PROJECT_PATH/$APK_PATH
+echo "cp $SHELL_PROJECT_PATH/$APK_PATH $DEST_APK_PATH"
+cp $SHELL_PROJECT_PATH/$APK_PATH $DEST_APK_PATH
+ls -l $DEST_APK_PATH/BrowserActivity-debug.apk

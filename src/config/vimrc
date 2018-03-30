@@ -1,0 +1,184 @@
+"set encoding=gb2312
+let &termencoding=&encoding
+set fileencodings=utf-8,gbk
+set showcmd
+
+syntax enable
+syntax on
+colorscheme desert
+
+set shiftwidth=4
+set tabstop=4
+set softtabstop=4
+set expandtab
+set ignorecase "忽略大小写
+set ruler
+
+set ignorecase smartcase " 搜索时忽略大小写，但在有一个或以上大写字母时仍保持对大小写敏感
+"set nowrapscan " 禁止在搜索到文件两端时重新搜索
+set incsearch " 输入搜索内容时就显示搜索结果
+set hlsearch " 搜索时高亮显示被找到的文本
+"##################
+"set tags+=/home/bdg/svn/webkit_403.tags/nufront_webkit/Source/tags
+"cs add /home/bdg/svn/webkit_403.tags/nufront_webkit/Source/cscope.out
+"set tags+=~/svn/webkit_403.tags/NuBrowserPad$/tags
+"cs add ~/svn/webkit_403.tags/NuBrowserPad$/cscope.out
+"##################
+
+"set tags+=/home/bdg/ssd/android/android441/external/chromium_org/tags
+"cs add /home/bdg/ssd/android/android441/external/chromium_org/cscope.out
+"set tags+=/home/bdg/ssd/android/android441/external/chromium_org/third_party/WebKit/tags
+"cs add /home/bdg/ssd/android/android441/external/chromium_org/third_party/WebKit/cscope.out
+
+
+"set tags+=~/sogouwebview/release3.2.0/tags
+"cs add ~/sogouwebview/release3.2.0/cscope.out
+"set tags+=~/sogouwebcore/player/tags
+"cs add ~/sogouwebcore/player/cscope.out
+
+"set tags+=~/ssd/android/AndroidSource/external/sogouchromium/tags
+"cs add ~/ssd/android/AndroidSource/external/sogouchromium/cscope.out
+
+"set tags+=/home/bdg/sogouwebcore/sogouchromium/tags
+"cs add /home/bdg/sogouwebcore/sogouchromium/cscope.out
+
+
+"set tags+=/home/bdg/ssd/bak/android4.1/tags
+"cs add /home/bdg/ssd/bak/android4.1/cscope.out
+"set tags+=/home/bdg/sogouwebcore/sogouwebkit/Source/tags
+"cs add /home/bdg/sogouwebcore/sogouwebkit/Source/cscope.out
+"set tags+=/home/bdg/sogouwebcore/sogouwebview/tags
+"cs add /home/bdg/sogouwebcore/sogouwebview/cscope.out
+
+
+" ==================
+"set tags+=~/sogouwebview/sogouwebview/tags
+"cs add ~/sogouwebview/sogouwebview/cscope.out
+
+"set tags+=/home/bdg/sogouwebview/release2.6.0/tags
+"cs add /home/bdg/sogouwebview/release2.6.0/cscope.out
+
+"set tags+=~/ssd/android/AndroidSource/external/sogouwebkit/Source/tags
+"cs add ~/ssd/android/AndroidSource/external/sogouwebkit/Source/cscope.out
+" ==================
+
+"set tags+=/home/bdg/sogouwebcore/release2.6.0/tags
+"cs add /home/bdg/sogouwebcore/release2.6.0/cscope.out
+
+
+"set tags+=~/ssd/android/android43/external/webkit/Source/tags
+"cs add ~/ssd/android/android43/external/webkit/Source/cscope.out
+
+"set tags+=/home/bdg/sogouwebcore.1/sogouwebkit/Source/tags
+"cs add /home/bdg/sogouwebcore.1/sogouwebkit/Source/cscope.out
+
+"set tags+=/home/bdg/ssd/android/AndroidSource/external/sogoulibs/tags
+"cs add /home/bdg/ssd/android/AndroidSource/external/sogoulibs/cscope.out
+
+"set tags+=~/ssd/android/AndroidSource/external/sogoulibs/sogousupport/tags
+"cs add ~/ssd/android/AndroidSource/external/sogoulibs/sogousupport/cscope.out
+
+"set tags+=~/sogouwebview/webviewdemo/tags
+"cs add ~/sogouwebview/webviewdemo/cscope.out
+
+
+"set tags+=~/workspace/workspace/NuBrowserPad/tags
+"cs add ~/workspace/workspace/NuBrowserPad/cscope.out
+"let g:LookupFile_TagExpr='"/home/bdg/svn/java/BrowserActivity/filenametags"'
+
+"set tags+=~/android/google_android403r1/google_android403r1/external/chromium/tags
+"cs add ~/android/google_android403r1/google_android403r1/external/chromium/cscope.out
+"let g:LookupFile_TagExpr='"/home/bdg/android/google_android403r1/google_android403r1/external/chromium/filenametags"'
+
+let mapleader=","
+map <leader>e :edit ~/.vimrc<Esc>
+map <leader>s :source ~/.vimrc<Esc>
+syntax on
+
+" use both cscope and ctag for 'ctrl-]', ':ta', and 'vim -t'
+" set cscopetag
+
+
+if has("cscope")
+set csprg=/usr/bin/cscope
+" check cscope for definition of a symbol before checking ctags: set to 1
+" if you want the reverse search order.
+set csto=1
+set cst
+set nocsverb
+" add any database in current directory
+if filereadable("cscope.out")
+cs add cscope.out
+" else add database pointed to by environment
+elseif $CSCOPE_DB != ""
+cs add $CSCOPE_DB
+endif
+set csverb
+endif
+
+map g<C-]> :cs find 3 <C-R>=expand("<cword>")<CR><CR>
+map g<C-\> :cs find 0 <C-R>=expand("<cword>")<CR><CR>
+
+"nmap <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR>	
+nmap [s :cs find s <C-R>=expand("<cword>")<CR><CR>	
+nmap [g :cs find g <C-R>=expand("<cword>")<CR><CR>	
+nmap [c :cs find c <C-R>=expand("<cword>")<CR><CR>	
+nmap [t :cs find t <C-R>=expand("<cword>")<CR><CR>	
+nmap [e :cs find e <C-R>=expand("<cword>")<CR><CR>	
+nmap [f :cs find f <C-R>=expand("<cfile>")<CR><CR>	
+nmap [i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
+nmap [d :cs find d <C-R>=expand("<cword>")<CR><CR>	
+
+let Tlist_Ctags_Cmd = '/usr/bin/ctags'
+let Tlist_Show_One_File = 1
+let Tlist_Exit_OnlyWindow = 1
+let Tlist_Use_Right_Window = 0
+
+
+"map <C-_> :cstag <C-R>=expand("<cword>")<CR><CR>
+" 字符集
+set encoding=utf-8
+set fileencodings=utf-8,chinese,latin-1
+
+set cindent
+
+" 设置vimdiff上下文可见
+set diffopt=filler,context:1000
+
+""""""""""""""""""""""""""""""
+" lookupfile setting
+""""""""""""""""""""""""""""""
+let g:LookupFile_MinPatLength = 2               "最少输入2个字符才开始查找
+let g:LookupFile_PreserveLastPattern = 0        "不保存上次查找的字符串
+let g:LookupFile_PreservePatternHistory = 1     "保存查找历史
+let g:LookupFile_AlwaysAcceptFirst = 1          "回车打开第一个匹配项目
+let g:LookupFile_AllowNewFiles = 0              "不允许创建不存在的文件
+if filereadable("./filenametags")                "设置tag文件的名字
+let g:LookupFile_TagExpr = '"./filenametags"'
+endif
+"映射LookupFile为,lk
+nmap <silent> <leader>lk :LUTags<cr>
+"映射LUBufs为,ll
+nmap <silent> <leader>ll :LUBufs<cr>
+"映射LUWalk为,lw
+nmap <silent> <leader>lw :LUWalk<cr>
+
+    " lookup file with ignore case
+function! LookupFile_IgnoreCaseFunc(pattern)
+let _tags = &tags
+try
+let &tags = eval(g:LookupFile_TagExpr)
+let newpattern = '\c' . a:pattern
+let tags = taglist(newpattern)
+catch
+echohl ErrorMsg | echo "Exception: " . v:exception | echohl NONE
+return ""
+finally
+let &tags = _tags
+endtry
+
+" Show the matches for what is typed so far.
+let files = map(tags, 'v:val["filename"]')
+return files
+endfunction
+let g:LookupFile_LookupFunc = 'LookupFile_IgnoreCaseFunc' 
