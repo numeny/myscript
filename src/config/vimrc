@@ -1,4 +1,4 @@
-"set encoding=gb2312
+set encoding=utf-8
 let &termencoding=&encoding
 set fileencodings=utf-8,gbk
 set showcmd
@@ -137,9 +137,6 @@ let Tlist_Use_Right_Window = 0
 
 "map <C-_> :cstag <C-R>=expand("<cword>")<CR><CR>
 " 字符集
-set encoding=utf-8
-set fileencodings=utf-8,chinese,latin-1
-
 set cindent
 
 " 设置vimdiff上下文可见
